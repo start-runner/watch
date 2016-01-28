@@ -2,7 +2,7 @@
 [![travis](http://img.shields.io/travis/start-runner/watch.svg?style=flat-square)](https://travis-ci.org/start-runner/watch)
 [![deps](https://img.shields.io/gemnasium/start-runner/watch.svg?style=flat-square)](https://gemnasium.com/start-runner/watch)
 
-Watch wrapper for [Start](https://github.com/start-runner/start).
+Watch task for [Start](https://github.com/start-runner/start).
 
 ## Install
 

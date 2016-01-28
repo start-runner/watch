@@ -1,7 +1,7 @@
 {
   "name": "start-watch",
   "version": "0.2.0",
-  "description": "Watch wrapper for Start",
+  "description": "Watch task for Start",
   "keywords": [ "start-task", "watch" ],
   "homepage": "https://github.com/start-runner/watch",
   "repository": "start-runner/watch",
