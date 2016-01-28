@@ -14,17 +14,23 @@ npm i -D start-watch
 
 ```js
 // tasks/index.js
-import start from 'start';
+import Start from 'start';
 import logger from 'start-simple-logger';
+import clean from 'start-clean';
 import watch from 'start-watch';
 import babel from 'start-babel';
 
+const start = Start(logger);
+
 export function dev() {
-    return watch('src/**/*.js', function(file) {
-        start(logger)(
-            babel(file, 'build/')
-        );
-    });
+    return start(
+        clean('build/'),
+        watch('src/**/*.js', function(file) {
+            return start(
+                babel(file, 'build/')
+            );
+        })
+    );
 }
 ```
 
