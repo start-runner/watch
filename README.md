@@ -21,7 +21,7 @@ import babel from 'start-babel';
 
 export function dev() {
     return watch('src/**/*.js', function(file) {
-        start(
+        start(logger)(
             babel(file, 'build/')
         );
     });
