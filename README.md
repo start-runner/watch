@@ -12,6 +12,8 @@ npm i -D start-watch
 
 ## Usage
 
+Task is rely on array of files.
+
 ```js
 // tasks/index.js
 import start from 'start';
@@ -23,7 +25,7 @@ import babel from 'start-babel';
 import write from 'start-write';
 
 export function dev() {
-    return start(logger)(
+    return start(logger())(
         files('build/'),
         clean(),
         files('lib/**/*.js'),
