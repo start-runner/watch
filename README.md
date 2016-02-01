@@ -14,22 +14,24 @@ npm i -D start-watch
 
 ```js
 // tasks/index.js
-import Start from 'start';
+import start from 'start';
 import logger from 'start-simple-logger';
+import files from 'start-files';
 import clean from 'start-clean';
 import watch from 'start-watch';
 import babel from 'start-babel';
-
-const start = Start(logger);
+import write from 'start-write';
 
 export function dev() {
-    return start(
-        clean('build/'),
-        watch('src/**/*.js', function(file) {
-            return start(
-                babel(file, 'build/')
-            );
-        })
+    return start(logger)(
+        files('build/'),
+        clean(),
+        files('lib/**/*.js'),
+        watch(file => start(
+            files(file),
+            babel(),
+            write('build/')
+        ))
     );
 }
 ```
@@ -44,7 +46,6 @@ export function dev() {
 
 ## Arguments
 
-`watch(patterns, callback)`
+`watch(callback)`
 
-* `patterns` – [globby patterns](https://github.com/sindresorhus/globby)
 * `callback(file)` – callback function which will be called on matched file changes
