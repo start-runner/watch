@@ -16,16 +16,19 @@ Task is rely on array of files.
 
 ```js
 // tasks/index.js
-import start from 'start';
+import Start from 'start';
 import logger from 'start-simple-logger';
 import files from 'start-files';
 import clean from 'start-clean';
 import watch from 'start-watch';
 import babel from 'start-babel';
 import write from 'start-write';
+import mocha from 'start-mocha';
+
+cosnt start = Start(logger());
 
 export function dev() {
-    return start(logger())(
+    return start(
         files('build/'),
         clean(),
         files('lib/**/*.js'),
@@ -36,13 +39,24 @@ export function dev() {
         ))
     );
 }
+
+export function tdd() {
+    return start(
+        files([ 'lib/**/*.js', 'test/**/*.js']),
+        watch(() => start(
+            files('test/**/*.js'),
+            mocha()
+        ))
+    );
+}
 ```
 
 ```js
 // package.json
 "scripts": {
   "task": "babel-node node_modules/.bin/start tasks/",
-  "dev": "npm run task dev"
+  "dev": "npm run task dev",
+  "tdd": "npm run task tdd"
 }
 ```
 
