@@ -18,7 +18,7 @@ npm i -D start-watch
 
 ```js
 import Start from 'start';
-import logger from 'start-simple-logger';
+import reporter from 'start-pretty-reporter';
 import files from 'start-files';
 import clean from 'start-clean';
 import watch from 'start-watch';
@@ -26,7 +26,7 @@ import babel from 'start-babel';
 import write from 'start-write';
 import mocha from 'start-mocha';
 
-cosnt start = Start(logger());
+cosnt start = Start(reporter());
 
 export function dev() {
     return start(
