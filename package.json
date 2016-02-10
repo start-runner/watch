@@ -1,6 +1,6 @@
 {
   "name": "start-watch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Watch task for Start",
   "keywords": [ "start", "start-task", "watch" ],
   "homepage": "https://github.com/start-runner/watch",
