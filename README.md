@@ -22,6 +22,7 @@ import reporter from 'start-pretty-reporter';
 import files from 'start-files';
 import clean from 'start-clean';
 import watch from 'start-watch';
+import read from 'start-read';
 import babel from 'start-babel';
 import write from 'start-write';
 import mocha from 'start-mocha';
@@ -35,6 +36,7 @@ export function dev() {
         files('lib/**/*.js'),
         watch(file => start(
             files(file),
+            read(),
             babel(),
             write('build/')
         ))
