@@ -1,7 +1,8 @@
 # start-watch
 
 [![npm](https://img.shields.io/npm/v/start-watch.svg?style=flat-square)](https://www.npmjs.com/package/start-watch)
-[![travis](http://img.shields.io/travis/start-runner/watch.svg?style=flat-square)](https://travis-ci.org/start-runner/watch)
+[![linux build](https://img.shields.io/travis/start-runner/watch.svg?label=linux&style=flat-square)](https://travis-ci.org/start-runner/watch)
+[![windows build](https://img.shields.io/appveyor/ci/start-runner/watch.svg?label=windows&style=flat-square)](https://ci.appveyor.com/project/start-runner/watch)
 [![coverage](https://img.shields.io/codecov/c/github/start-runner/watch.svg?style=flat-square)](https://codecov.io/github/start-runner/watch)
 [![deps](https://img.shields.io/gemnasium/start-runner/watch.svg?style=flat-square)](https://gemnasium.com/start-runner/watch)
 [![gitter](https://img.shields.io/badge/gitter-join_chat_%E2%86%92-00d06f.svg?style=flat-square)](https://gitter.im/start-runner/start)
