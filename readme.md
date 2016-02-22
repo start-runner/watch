@@ -57,6 +57,8 @@ export function tdd() {
 
 This task relies on array of files, see [documentation](https://github.com/start-runner/start#readme) for details.
 
+:point_right: Note that this task may not work properly with tasks like [start-webpack](https://github.com/start-runner/webpack) and [start-karma](https://github.com/start-runner/karma) which have their own file watching functionality.
+
 ## Arguments
 
 `watch(callback)`
