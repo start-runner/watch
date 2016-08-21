@@ -5,7 +5,6 @@
 [![windows build](https://img.shields.io/appveyor/ci/start-runner/watch.svg?label=windows&style=flat-square)](https://ci.appveyor.com/project/start-runner/watch)
 [![coverage](https://img.shields.io/codecov/c/github/start-runner/watch.svg?style=flat-square)](https://codecov.io/github/start-runner/watch)
 [![deps](https://img.shields.io/gemnasium/start-runner/watch.svg?style=flat-square)](https://gemnasium.com/start-runner/watch)
-[![gitter](https://img.shields.io/badge/gitter-join_chat_%E2%86%92-00d06f.svg?style=flat-square)](https://gitter.im/start-runner/start)
 
 Watch task for [Start](https://github.com/start-runner/start).
 
