@@ -10,8 +10,10 @@ Watch task for [Start](https://github.com/start-runner/start).
 
 ## Install
 
-```
-npm i -D start-watch
+```sh
+npm install --save-dev start-watch
+# or
+yarn add --dev start-watch
 ```
 
 ## Usage
@@ -29,29 +31,25 @@ import mocha from 'start-mocha';
 
 cosnt start = Start(reporter());
 
-export function dev() {
-    return start(
-        files('build/'),
-        clean(),
-        files('lib/**/*.js'),
-        watch(file => start(
-            files(file),
-            read(),
-            babel(),
-            write('build/')
-        ))
-    );
-}
+export const dev = () => start(
+  files('build/'),
+  clean(),
+  files('lib/**/*.js'),
+  watch(file => start(
+    files(file),
+    read(),
+    babel(),
+    write('build/')
+  ))
+);
 
-export function tdd() {
-    return start(
-        files([ 'lib/**/*.js', 'test/**/*.js']),
-        watch(() => start(
-            files('test/**/*.js'),
-            mocha()
-        ))
-    );
-}
+export const tdd = () => start(
+  files([ 'lib/**/*.js', 'test/**/*.js']),
+  watch(() => start(
+    files('test/**/*.js'),
+    mocha()
+  ))
+);
 ```
 
 This task relies on array of files, see [documentation](https://github.com/start-runner/start#readme) for details.
