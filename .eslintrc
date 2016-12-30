@@ -1,9 +1,7 @@
 {
   "extends": [
-    "rebem/configs/common",
-    "rebem/configs/babel"
-  ],
-  "rules": {
-    "callback-return": 0
-  }
+    "tough/config/common",
+    "tough/config/node",
+    "tough/config/esnext"
+  ]
 }
