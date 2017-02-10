@@ -34,9 +34,8 @@ cosnt start = Start(reporter());
 export const dev = () => start(
   files('build/'),
   clean(),
-  files('lib/**/*.js'),
-  watch(file => start(
-    files(file),
+  watch('lib/**/*.js')((changedFiles) => start(
+    files(changedFiles),
     read(),
     babel(),
     write('build/')
@@ -44,15 +43,14 @@ export const dev = () => start(
 );
 
 export const tdd = () => start(
-  files([ 'lib/**/*.js', 'test/**/*.js']),
-  watch(() => start(
-    files('test/**/*.js'),
+  watch([ 'lib/**/*.js', 'test/**/*.js'], {...chokidarOpts})((changedFiles) => start(
+    files(changedFiles),
     mocha()
   ))
 );
 ```
 
-This task relies on array of files, see [documentation](https://github.com/start-runner/start#readme) for details.
+See [documentation](https://github.com/start-runner/start#readme) for details.
 
 :point_right: Note that this task may not work properly with tasks like [start-webpack](https://github.com/start-runner/webpack) and [start-karma](https://github.com/start-runner/karma) which have their own file watching functionality.
 
@@ -60,4 +58,4 @@ This task relies on array of files, see [documentation](https://github.com/start
 
 `watch(callback)`
 
-* `callback(file)` – callback function which will be called on matched file changes
+* `callback(files)` – callback function which will be called on matched file changes
