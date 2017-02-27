@@ -3,5 +3,8 @@
     "tough/config/common",
     "tough/config/node",
     "tough/config/esnext"
-  ]
+  ],
+  "rules": {
+    "promise/always-return": 0
+  }
 }
