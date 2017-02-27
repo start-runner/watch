@@ -28,6 +28,7 @@ import read from 'start-read';
 import babel from 'start-babel';
 import write from 'start-write';
 import mocha from 'start-mocha';
+import inputConnector from 'start-input-connector';
 
 cosnt start = Start(reporter());
 
@@ -35,17 +36,10 @@ export const dev = () => start(
   files('build/'),
   clean(),
   watch('lib/**/*.js')((changedFiles) => start(
-    files(changedFiles),
+    inputConnector(changedFiles),
     read(),
     babel(),
     write('build/')
-  ))
-);
-
-export const tdd = () => start(
-  watch([ 'lib/**/*.js', 'test/**/*.js'], {...chokidarOpts})((changedFiles) => start(
-    files(changedFiles),
-    mocha()
   ))
 );
 ```
@@ -56,6 +50,9 @@ See [documentation](https://github.com/start-runner/start#readme) for details.
 
 ## Arguments
 
-`watch(callback)`
+`watch(files, events, options)(callback)`
 
-* `callback(files)` – callback function which will be called on matched file changes
+* `files` – [Chokidar "file, dir, glob, or array"](https://github.com/paulmillr/chokidar)
+* `events` – [Chokidar events array](https://github.com/paulmillr/chokidar#getting-started), `[ 'change', 'add' ]` by default
+* `options` – [Chokidar options](https://github.com/paulmillr/chokidar#api), `{ persistent: true }` by default
+* `callback(changedFiles)` – callback function which will be called with an array of matched and changed files
